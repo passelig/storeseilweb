@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  storseilweb:
+    image: storseilweb
+    build:
+      context: .
+      dockerfile: StorseilWeb\Dockerfile

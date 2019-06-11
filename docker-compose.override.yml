@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  storseilweb:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "7676:80"
+networks:
+  default:
+    external:
+      name: nat
