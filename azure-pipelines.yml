@@ -15,6 +15,4 @@ variables:
 steps:
 - script: dotnet build StorseilWeb.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-
-steps:
 - script: docker build -t $(dockerId)/$(imageName) . 
