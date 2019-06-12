@@ -15,4 +15,9 @@ variables:
 steps:
 - script: dotnet build StorseilWeb.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- script: docker build -t $(dockerId)/$(imageName) . 
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'gunnarregistry.azurecr.io'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
