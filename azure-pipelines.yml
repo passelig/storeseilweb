@@ -20,4 +20,10 @@ steps:
     containerregistrytype: 'Container Registry'
     dockerRegistryEndpoint: 'gunnarregistry.azurecr.io'
     dockerComposeFile: '**/docker-compose.yml'
-    action: 'Run a Docker Compose command'
+    action: 'Build services'
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'gunnarregistry.azurecr.io'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Push services'
