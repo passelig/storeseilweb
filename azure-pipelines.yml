@@ -15,3 +15,15 @@ variables:
 steps:
 - script: dotnet build StorseilWeb.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'gunnarregistry.azurecr.io'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Build services'
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'gunnarregistry.azurecr.io'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Push services'
