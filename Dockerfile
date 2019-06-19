@@ -1,8 +1,8 @@
-FROM microsoft/aspnetcore:2.0-nanoserver-sac2016 AS base
+FROM microsoft/dotnet:aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0-nanoserver-sac2016 AS build
+FROM microsoft/dotnet:sdk AS build
 WORKDIR /src
 COPY StorseilWeb.sln ./
 COPY StorseilWeb/StorseilWeb.csproj StorseilWeb/
