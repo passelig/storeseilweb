@@ -4,8 +4,8 @@ EXPOSE 80
 
 FROM microsoft/dotnet:sdk AS build
 WORKDIR /src
-COPY StorseilWeb/StorseilWeb.sln ./
-COPY StorseilWeb/StorseilWeb/StorseilWeb.csproj StorseilWeb/
+COPY /home/vsts/work/1/s/StorseilWeb.sln ./
+COPY /home/vsts/work/1/s/StorseilWeb/ StorseilWeb/
 RUN dotnet restore -nowarn:msb3202,nu1503
 COPY . .
 WORKDIR /src/StorseilWeb
