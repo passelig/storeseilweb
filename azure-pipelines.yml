@@ -12,7 +12,10 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-steps:
+steps: 
+- task: CmdLine@2
+  inputs:
+    script: 'pwd&&ls'
 - task: DockerCompose@0
   displayName: "Compose build"
   inputs:
