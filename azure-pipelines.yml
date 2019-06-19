@@ -13,8 +13,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build StorseilWeb.sln --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Container Registry'
