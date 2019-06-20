@@ -4,5 +4,5 @@ services:
   storseilweb:
     image: storseilweb
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: StorseilWeb
+      dockerfile: ../Dockerfile
