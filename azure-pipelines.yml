@@ -20,6 +20,7 @@ steps:
   displayName: "Compose build"
   inputs:
     containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'sbankendemoacr.azurecr.io'
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Build services'
 - task: DockerCompose@0
