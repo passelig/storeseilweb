@@ -19,7 +19,7 @@ jobs:
           name: Build image
           context: "Azure"
           environment:
-            CONTAINER_REGISTRY: {{ .Environment.CONTAINER_REGISTRY }}
+            CONTAINER_REGISTRY: {{ .CONTAINER_REGISTRY }}
           command: |
             PATH=/tmp/docker/:$PATH
             TAG=0.1.$CIRCLE_BUILD_NUM
