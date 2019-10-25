@@ -6,7 +6,7 @@ FROM microsoft/dotnet:sdk AS build
 WORKDIR /src
 
 COPY . ./
-RUN dotnet restore -nowarn:msb3202,nu1503
+RUN dotnet restore -nowarn:msb3202,nu1503 StorseilWeb.sln
 
 FROM build AS publish
 RUN dotnet publish -c Release -o /app
