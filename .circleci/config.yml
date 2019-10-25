@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   build:
+    context: "Azure"
     docker: 
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
@@ -16,7 +17,7 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
       - run: 
           name: Build image
-          context: Azure
+          context: "Azure"
           command: |
             PATH=/tmp/docker/:$PATH
             TAG=0.1.$CIRCLE_BUILD_NUM
