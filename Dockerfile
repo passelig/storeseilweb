@@ -9,7 +9,7 @@ COPY . ./
 RUN dotnet restore -nowarn:msb3202,nu1503 StorseilWeb.sln
 
 FROM build AS publish
-RUN dotnet publish -c Release -o /app
+RUN dotnet publish -c Release -o /app StorseilWeb.sln
 
 FROM base AS final
 WORKDIR /app
