@@ -16,7 +16,7 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
       - run: 
           name: Build image
-          context: Azasdasdure
+          context: org-global
           command: |
             env
             PATH=/tmp/docker/:$PATH
