@@ -16,7 +16,7 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
       - run: 
           name: Build image
-          context: org-global
+          context: Azure
           command: |
             env
             PATH=/tmp/docker/:$PATH
