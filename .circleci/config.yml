@@ -10,7 +10,9 @@ jobs:
       - run:
           context: Azure
           name: "What the value of TEST_VARIABLE?"
-          command: echo $TEST_VARIABLE
+          command: |
+            echo ${TEST_VARIABLE}
+            echo ${CIRCLE_SHA1:0:7}
       - run:
           name: Install Docker client
           command: |
