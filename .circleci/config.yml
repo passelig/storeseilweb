@@ -37,7 +37,7 @@ jobs:
             docker login -u "$CONTAINER_REGISTRY_USER" -p "$CONTAINER_REGISTRY_PASSWORD" "$CONTAINER_REGISTRY"
             echo "docker push $CONTAINER_REGISTRY/circleci-storseilweb:$TAG"
             docker push $CONTAINER_REGISTRY/circleci-storseilweb:$TAG
-            echo "tag $CONTAINER_REGISTRY/circleci-storseilweb:$TAG $CONTAINER_REGISTRY/circleci-storseilweb:git-commit-$COMMIT_TAG"
-            docker tag $CONTAINER_REGISTRY/circleci-storseilweb:$TAG $CONTAINER_REGISTRY/circleci-storseilweb:git-commit-$COMMIT_TAG
-            docker push $CONTAINER_REGISTRY/circleci-storseilweb:git-commit-$COMMIT_TAG
+            #echo "tag $CONTAINER_REGISTRY/circleci-storseilweb:$TAG $CONTAINER_REGISTRY/circleci-storseilweb:git-commit-$COMMIT_TAG"
+            #docker tag $CONTAINER_REGISTRY/circleci-storseilweb:$TAG $CONTAINER_REGISTRY/circleci-storseilweb:git-commit-$COMMIT_TAG
+            #docker push $CONTAINER_REGISTRY/circleci-storseilweb:git-commit-$COMMIT_TAG
             
