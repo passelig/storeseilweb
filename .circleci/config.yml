@@ -27,12 +27,12 @@ jobs:
             env
             PATH=/tmp/docker/:$PATH
             TAG=0.1.$CIRCLE_BUILD_NUM
-            COMMIT_TAG=${CIRCLE_SHA1:0:7}
-            docker build -t "${CONTAINER_REGISTRY}/circleci-storseilweb" .
+            docker build -t "${CONTAINER_REGISTRY}/circleci-storseilweb":$TAG .
       - run:
           name: "Publish image"
           context: Azure
           command: |
+            TAG=0.1.$CIRCLE_BUILD_NUM
             docker login -u "$CONTAINER_REGISTRY_USER" -p "$CONTAINER_REGISTRY_PASSWORD" "$CONTAINER_REGISTRY"
-            echo "docker push $CONTAINER_REGISTRY/circleci-storseilweb"
-            docker push $CONTAINER_REGISTRY/circleci-storseilweb
+            echo "docker push $CONTAINER_REGISTRY/circleci-storseilweb:$TAG"
+            docker push $CONTAINER_REGISTRY/circleci-storseilweb:$TAG
