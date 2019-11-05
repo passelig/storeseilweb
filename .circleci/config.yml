@@ -24,6 +24,7 @@ jobs:
           name: Build image
           context: Azure
           command: |
+            GIT_COMMIT=${CIRCLE_SHA1:0:7}
             env
             PATH=/tmp/docker/:$PATH
             docker build -t "${CONTAINER_REGISTRY}/circleci-storseilweb":$CIRCLE_BUILD_NUM-$GIT_COMMIT .
