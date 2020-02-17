@@ -5,7 +5,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "7676:80"
+      - "7676:8080"
 networks:
   default:
     external:

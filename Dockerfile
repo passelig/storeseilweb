@@ -1,6 +1,5 @@
 FROM microsoft/dotnet:aspnetcore-runtime AS base
 WORKDIR /app
-EXPOSE 80
 
 FROM microsoft/dotnet:sdk AS build
 WORKDIR /src
@@ -14,4 +13,11 @@ RUN dotnet publish -c Release -o /app StorseilWeb.sln
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
+RUN apt-get update && apt-get install -y \
+	procps \
+	less 
+RUN	groupadd -g 999 appusergroup && \
+    useradd -r -u 999 -g appusergroup appuser
+	
+USER appuser
 ENTRYPOINT ["dotnet", "StorseilWeb.dll"]
